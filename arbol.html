@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tu Página</title>
+    <link rel="stylesheet" href="arbol.css" />
+  </head>
+  <body>
+    <h1 id="titulo">ARBOL DE DECISIONES</h1>
+    <main>
+      <div id="sidebar">
+        <label for="opciones">Selecciona una opción:</label>
+        <select id="opciones" name="opciones">
+          <option value="costo">Costo</option>
+          <option value="ganancia">Ganancia</option>
+        </select>
+        <section class="acciones">
+          <p>Nodo Seleccionado:</p>
+          <input type="number" value="1" id="numeroRamas" readonly style="font-size: 30px; height: 40px; width: 60px; text-align: center; padding-left: 0px;"/>
+          <button
+            onclick="aumentar()"
+            style="background-color: green; color: white; font-size: 20px"
+          >
+            +
+          </button>
+          <button
+            onclick="disminuir()"
+            style="background-color: red; color: white; font-size: 20px"
+          >
+            -
+          </button>
+          <br />
+          <button onclick="añadirRama()">AÑADIR RAMA</button>
+        </section>
+
+      </div>
+
+      <div id="content-container">
+        <canvas id="miCanvas" height="800px" width="1200px">
+
+
+
+        </canvas>
+      </div>
+    </main>
+
+    <script src="arbol.js"></script>
+  </body>
+</html>
