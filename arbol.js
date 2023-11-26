@@ -42,9 +42,72 @@ function añadirRama() {
 
 
 
-  if (flag == "si") {
+  if (flag == "si") {var nombresRamas = [];
+    var i;
+    var tope;
+    var diferencia;
+    var altura = 40;
+    var distancia = 150;
+    //calcular diferencia (espacio entre flechas)
 
+    if (ubicacion_nodo.length == 1) {
+      switch (nodosCantidad) {
+        case 1:
+          diferencia = 0;
+          break;
+        case 2:
+          diferencia = 450;
+          break;
+        case 3:
+          diferencia = 240;
+          break;
+        case 4:
+          diferencia = 160;
+          break;
+      }
+      altura = 200;
+      distancia = 250;
+    } else {
+      switch (nodosCantidad) {
+        case 1:
+          diferencia = 0;
+          break;
+        case 2:
+          altura = 20;
+          diferencia = 60;
+          break;
+        case 3:
+          diferencia = 80;
+          break;
+        case 4:
+          diferencia = 60;
+          break;
+      }
+    }
 
+    for (i = 0; i < nodosCantidad; i++) {
+      nombresRamas[i] = prompt(`Numero : [${i + 1}] = Nombre union :`);
+      if (i == 0) {
+        tope = ubicacion_nodo[ramaActual].y - altura;
+        drawArrowLine(
+          ubicacion_nodo[ramaActual].x + 70,
+          ubicacion_nodo[ramaActual].y + 20,
+          ubicacion_nodo[ramaActual].x + 120 + distancia,
+          tope+20
+        );
+        tope = tope + diferencia;
+        //
+      } else {
+        drawArrowLine(
+          ubicacion_nodo[ramaActual].x + 70,
+          ubicacion_nodo[ramaActual].y + 20,
+          ubicacion_nodo[ramaActual].x + 120 + distancia,
+          tope+20
+        );
+        tope = tope + diferencia;
+      }
+      /////
+    }
     
   } else {
     var nombresRamas = [];
@@ -78,7 +141,8 @@ function añadirRama() {
           diferencia = 0;
           break;
         case 2:
-          diferencia = 120;
+          altura = 30;
+          diferencia = 90;
           break;
         case 3:
           diferencia = 80;
